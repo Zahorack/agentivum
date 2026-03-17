@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentivum — Engineering the Agentic Future</title>
+    <meta name="description" content="Agentivum s.r.o. — AI engineering consultancy specializing in agentic systems, intelligent automation, and applied AI.">
+    <meta property="og:title" content="Agentivum — Engineering the Agentic Future">
+    <meta property="og:description" content="AI engineering consultancy specializing in agentic systems, intelligent automation, and applied AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://agentivum.com">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #09090b;
+            --bg-subtle: #18181b;
+            --border: #27272a;
+            --text: #fafafa;
+            --text-muted: #a1a1aa;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Subtle grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 8rem 0 6rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            background: var(--bg-subtle);
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 .gradient {
+            background: linear-gradient(135deg, var(--accent), #a78bfa, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 540px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 50px var(--accent-glow);
+        }
+
+        /* Capabilities */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 3rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .card {
+            padding: 2rem;
+            background: var(--bg);
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Approach */
+        .approach {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem;
+            background: var(--bg-subtle);
+            margin: 2rem 0;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .approach-item {
+            text-align: center;
+        }
+
+        .approach-number {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .approach-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-info {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .footer-contact a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .hero { padding: 5rem 0 4rem; }
+            .approach-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .approach { padding: 2rem; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="logo-mark">A</div>
+                <span class="logo-text">Agentivum</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    AI Engineering Consultancy
+                </div>
+                <h1>Engineering the<br><span class="gradient">agentic future</span></h1>
+                <p class="hero-sub">
+                    We design and build intelligent agentic systems that transform 
+                    how organizations operate — from concept to production.
+                </p>
+                <a href="mailto:oliver@agentivum.com" class="hero-cta">
+                    Get in touch →
+                </a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-label">Capabilities</div>
+                <h2 class="section-title">What we build</h2>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Agentic Systems</h3>
+                        <p>Autonomous AI agents that reason, plan, and execute complex multi-step workflows with minimal human oversight.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🧠</div>
+                        <h3>Applied AI / ML</h3>
+                        <p>Production-grade machine learning pipelines — from NLP and speech processing to custom model fine-tuning and evaluation.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🔧</div>
+                        <h3>AI Infrastructure</h3>
+                        <p>Scalable backend systems, API design, and cloud architecture purpose-built for AI-native applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="approach">
+                    <div class="section-label">Track Record</div>
+                    <h2 class="section-title">Built for production, not demos</h2>
+                    <div class="approach-grid">
+                        <div class="approach-item">
+                            <div class="approach-number">7+</div>
+                            <div class="approach-label">Years in AI engineering</div>
+                        </div>
+                        <div class="approach-item">
+                            <div class="approach-number">HealthTech</div>
+                            <div class="approach-label">Deep domain expertise</div>
+                        </div>
+                        <div class="approach-item">
+                            <div class="approach-number">EU + US</div>
+                            <div class="approach-label">Clients served</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <strong>Agentivum s.r.o.</strong><br>
+                    Bratislava, Slovakia<br>
+                    IČO: — · DIČ: —
+                </div>
+                <div class="footer-contact">
+                    <a href="mailto:oliver@agentivum.com">oliver@agentivum.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
